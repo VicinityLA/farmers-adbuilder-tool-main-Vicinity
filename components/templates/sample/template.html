@@ -1,0 +1,46 @@
+<div class='template-sample'>
+	<div class='page'>
+		<div class='design'>
+			<div class='inner'>
+				<div class='header-img'>
+					<img v-if="!selected.photo || selected.photo ==='first'" src="~/assets/templates/sample/ACCOUNTANT_1.jpg" />
+					<img v-if="selected.photo ==='second'" src="~/assets/templates/sample/ACCOUNTANT_2.jpg" />
+					<img v-if="selected.photo ==='third'" src="~/assets/templates/sample/ACCOUNTANT_3.jpg" />
+					<img v-if="selected.photo ==='fourth'" src="~/assets/templates/sample/NURSES_IMAGE_1.jpg" />
+				</div>
+				<div class='content'>
+					<div class='headline'>
+						<h1>OUR COMMUNITY HEROES DESERVE QUALITY INSURANCE COVERAGE</h1>
+					</div>
+					<div class='body'>
+						<p>Farmers® believes in the community spirit and would like to celebrate your contribution to making it a better place to live.  Your career choices may qualify you for a professional discount for quality Farmers Insurance® products.  Just call me to ask about your coverage options and potential savings opportunities.</p>
+					</div>
+					<div class='call' :class="selected.cta">
+						<h2 v-if="!selected.cta || selected.cta === 'english'">Call today and get smart about your coverage!</h2>
+						<h2 v-if="selected.cta === 'esformal'">Comuníquese conmigo hoy mismo para obtener una revisión gratuita de su seguro.</h2>
+						<h2 v-if="selected.cta === 'esinformal'">Llámame hoy mismo para conseguir una revisión de tu seguro gratis.</h2>
+						<h2 v-if="selected.cta === 'viet'">Liên lạc với tôi ngay hôm nay để lên lịch hẹn buổi xét duyệt lại bảo hiểm của quý vị miễn phí.</h2>
+						<h2 v-if="selected.cta === 'mandarin'">請立即致電，預約免費的保險審查。</h2>
+						<h2 v-if="selected.cta === 'korean'">오늘 전화하셔서 무료 보험 검토를 예약하십시오.</h2>
+					</div>
+					<div class='agent-info'>
+						<div class='photo'>
+							<img src='~/assets/templates/sample/agent-photo.jpg' />
+						</div>
+						<div class='info'>
+							<p class='number' v-html='agent.phone'></p>
+							<p class='name' v-html='agent.name'></p>
+							<p class='subtitle'>{{ agent.subtitle }}  |  License {{ agent.license }}</p>
+							<p class='address' v-html="agent.address"></p>
+							<p class='address' v-html="agent.city_state_zip"></p>
+							<p class='address' v-html="agent.email"></p>
+						</div>
+					</div>
+					<div class='logo'>
+						<img src="~/assets/templates/sample/logo.svg" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

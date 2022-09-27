@@ -1,0 +1,173 @@
+$blue: rgb(32, 61, 124);
+
+@font-face {
+	font-family: 'Slate';
+	font-style: normal;
+	font-weight: 400;
+	src: url('~/assets/fonts/subset-SlatePro-Bk.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Slate';
+	font-style: normal;
+	font-weight: 600;
+	src: url('~/assets/fonts/subset-SlatePro-Medium.woff2') format('woff2');
+}
+
+@media print {
+	html, body {
+		margin: 0; padding: 0;
+	}
+}
+
+.page {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	width: 100vw;
+	align-content: center;
+	justify-content: center;
+	background-color: #efefef; 
+	
+	@media print {
+		background: none;
+	}
+}
+
+// Setup crop marks
+@media print {
+	.design:before, .design:after {
+		position: absolute;
+		content: '';
+		border: solid black;
+		z-index: -1;
+		display: block;
+	}
+	.design:before {
+		top: -0.25in; bottom: -0.25in;
+		left: 1px; right: 1px;
+		border-width: 0 1px;
+	}
+	.design:after {
+		left: -0.25in; right: -0.25in;
+		top: 1px; bottom: 1px;
+		border-width: 1px 0;
+	}
+}
+
+.design {
+	position: relative;
+	margin: 0 auto;
+	background: white;
+	z-index: 1;
+
+	.inner {
+		z-index: 1;
+		background: white;
+		width: 3in;
+		height: 5in;
+		overflow: hidden;
+		
+		@media print {
+			overflow: visible; // make sure our bleed, bleeds when printed.
+		}
+	}
+
+	
+	.header-img {
+		position: relative;
+		margin-bottom: 0.12in;
+		margin-left: -0.125in;
+		margin-top: -0.125in;
+
+		img {
+			width: 3.25in;
+			height: 1.75in;
+			object-fit: cover;
+			max-width: none;
+		}
+	}
+	
+	.content {
+		padding: 0 0.125in;
+	}
+	
+	.headline {
+		h1 {
+			font: 400 16pt/16pt 'Slate';
+			color: $blue;
+			margin-bottom: 0.10in;
+		}
+	}
+	
+	.body {
+		p {
+			font: 400 7pt/9pt 'Slate';
+			margin-bottom: 0.10in;
+		}
+	}
+	
+	.call {
+		width: 1.875in;
+		font: 600 10pt/10pt 'Slate';
+		
+		h2 {
+			color: $blue;
+			margin-bottom: 0.08in;
+		}
+		
+		&.viet {
+			width: 100%;
+			font: 600 9pt/9pt 'Slate';
+		}
+		&.esformal, &.esinformal, {
+			width: 90%;
+		}
+		&.mandarin {
+			width: 90%;
+		}
+		&.korean {
+			width: 100%;
+			margin-bottom: 0.11in;
+		}
+	}
+	
+	.agent-info {
+		display: flex;
+		flex-direction: row;
+		margin-bottom: 0.10in;
+		
+		.photo img {
+			width: 0.6774in;
+			height: 0.8129in;
+			object-fit: contain;
+			margin-right: 0.05in;
+		}
+		
+		p {
+			font: 400 7pt/8pt 'Slate';
+		}
+		
+		.number {
+			font: 400 16pt/14pt 'Slate';
+			margin-bottom: 0.02in;
+		}
+		
+		.name {
+			font: 600 10pt/8.455pt 'Slate';
+			margin-bottom: 0.02in;
+		}
+		
+		.subtitle {
+			margin-bottom: 0.05in;
+		}
+	}
+		
+	.logo {
+		
+		img {
+			width: 1.9809in;
+			height: 0.375in;
+		}
+	}
+}
